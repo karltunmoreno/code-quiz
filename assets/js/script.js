@@ -15,7 +15,7 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
     startButton.classList.add('hide')
-    shuffledQuestions = questions.sort(() => Math.random() - .5)
+    shuffledQuestions = question.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     questionContainerElement.classList.remove('hide')
     setNextQuestion()
@@ -46,7 +46,7 @@ function resetState() {
             (answerButtonsElement.firstChild)
     }
 }
-function selectAnswer() {
+function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
     setStatusClass(document.body, correct)
@@ -112,7 +112,4 @@ const question = [
             { text: 'css', correct: false }
         ]
     }
-
-
-
-
+]
