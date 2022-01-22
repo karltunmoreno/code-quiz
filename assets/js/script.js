@@ -1,11 +1,10 @@
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
-const questionElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
-
-
+const questionContainerElement = document.getElementById('question-container')
 let shuffledQuestions, currentQuestionIndex
+
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++
@@ -13,7 +12,7 @@ nextButton.addEventListener('click', () => {
 })
 
 
-function startGame() {
+function startGame(events) {
     startButton.classList.add('hide')
     shuffledQuestions = question.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
@@ -63,11 +62,12 @@ function selectAnswer(e) {
 
 
 function setStatusClass(element, correct) {
+    console.log(correct)
     clearStatusClass(element)
     if (correct) {
-        element.classlist.add('correct')
+        element.classList.add('correct')
     } else {
-        element.classlist.add('wrong')
+        element.classList.add('wrong')
     }
 }
 
@@ -109,7 +109,9 @@ const question = [
             { text: 'a dummy', correct: false },
             { text: 'programming Launguage', correct: true },
             { text: 'data recovery', correct: false },
-            { text: 'css', correct: false }
+            { text: 'css', correct: false }  
         ]
+        
     }
 ]
+startButton.addEventListener('click', startGame)
