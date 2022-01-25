@@ -8,3 +8,5 @@ created buttons
 checked answers with (if) statements 
 added increment code
 added on click functions
+Score button need to be added
+after test, or after time is up;then must say test over.

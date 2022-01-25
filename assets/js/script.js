@@ -1,26 +1,15 @@
-const countdownEl = document.getElementById('countdown');
+const countdownEl = document.getElementById('countdown')
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const questionContainerElement = document.getElementById('question-container')
 let shuffledQuestions, currentQuestionIndex
+var timerEl = document.getElementById('countdown');
+var mainEl = document.getElementById('main');
 
 
-const startingMinutes = 10;
-let time = startingMinutes * 60;
 
-setInterval (updateCountdown, 1000); 
-
-function updateCountdown() {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-
-    countdownEl.innerHTML = '10:00';
-    time--;
-}
 
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
@@ -132,3 +121,22 @@ const question = [
     }
 ]
 startButton.addEventListener('click', startGame)
+function countdown() {
+    var timeLeft = 30;
+  
+    // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+    var timeInterval = setInterval(function() {
+      if (timeLeft > 1) {
+      timerEl.textContent = timeLeft + 'seconds remaining';
+      timeLeft--;
+    } else if (timeLeft === 1) {
+      timerEl.textContent = timeLeft + ' second remaining';
+        timeLeft--;
+      } else {
+        timerEl.textContent = '';
+        clearInterval(timeInterval);
+        displayMessage();
+      }
+    }, 1000);
+  }
+  countdown();
