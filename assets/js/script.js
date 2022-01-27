@@ -7,7 +7,7 @@ const questionContainerElement = document.getElementById('question-container')
 let shuffledQuestions, currentQuestionIndex
 var timerEl = document.getElementById('countdown');
 var mainEl = document.getElementById('main');
-
+var timeLeft = 30;
 
 
 
@@ -20,6 +20,7 @@ nextButton.addEventListener('click', () => {
 
 function startGame(events) {
     startButton.classList.add('hide')
+    countdown()
     shuffledQuestions = question.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     questionContainerElement.classList.remove('hide')
@@ -54,6 +55,7 @@ function resetState() {
 function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
+    checkAnswer(correct)
     setStatusClass(document.body, correct)
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
@@ -63,8 +65,17 @@ function selectAnswer(e) {
     } else {
         startButton.innerText = 'Restart'
         startButton.classList.remove('hide')
+        endgame()
     }
 }
+
+function checkAnswer(correct) {
+    console.log(correct)
+    if (!correct) {
+       timeLeft -= 5
+    } 
+}  
+        
 
 
 function setStatusClass(element, correct) {
@@ -72,7 +83,7 @@ function setStatusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
         element.classList.add('correct')
-    } else {
+    } else {  
         element.classList.add('wrong')
     }
 }
@@ -121,11 +132,12 @@ const question = [
     }
 ]
 startButton.addEventListener('click', startGame)
+var timeInterval;
 function countdown() {
-    var timeLeft = 30;
+  
   
     // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-    var timeInterval = setInterval(function() {
+     timeInterval = setInterval(function() {
       if (timeLeft > 1) {
       timerEl.textContent = timeLeft + 'seconds remaining';
       timeLeft--;
@@ -134,9 +146,13 @@ function countdown() {
         timeLeft--;
       } else {
         timerEl.textContent = '';
-        clearInterval(timeInterval);
+        endgame()
         displayMessage();
       }
     }, 1000);
   }
-  countdown();
+        function endgame(){clearInterval(timeInterval);
+            var initialContainer = document.getElementById("score-container")
+            var initialInput = document.getElementById("initials")
+            var initialButton = document.getElementById("initial-button")
+        }
