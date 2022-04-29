@@ -1,17 +1,21 @@
-# code-quiz
-created index.html, css, javascript.
-added web API Code Quiz
-added varibales , timer that still needs completion.
-function display questions.
-added 4 questions
-created buttons
-checked answers with (if) statements 
-added increment code
-added on click functions
-Score button need to be added
-after test, or after time is up;then must say test over.
-The timer function is not counting down. The timer does not deduct extra time off when selecting the wrong answer.
+User asked:
+AS A USER I WANT to take a timed quiz on JavaScript fundamentals that stores high scores SO THAT I can gauge my progress compared to my peers.
 
- I am not able to save my score to local storage and view it later. 
+Criteria:
+GIVEN I am taking a code quiz
+WHEN I click the start button
+THEN a timer starts and I am presented with a question
+WHEN I answer a question
+THEN I am presented with another question
+WHEN I answer a question incorrectly
+THEN time is subtracted from the clock
+WHEN all questions are answered or the timer reaches 0
+THEN the game is over
+WHEN the game is over
+THEN I can save my initials and score
+What was done.
+This project was mainly done using JS, for its functionality. there is a script for the questions and there is room to grow there. 
  
-The README.md file is very descriptive. You should include link and screenshot in readme.
+
+Thank you for visiting this page.
+
